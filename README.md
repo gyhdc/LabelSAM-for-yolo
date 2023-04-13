@@ -27,6 +27,7 @@ python>=3.8, as well as pytorch>=1.7 and torchvision>=0.8,opencv-python>=4.6.0
 
 
 ## 注意：SAM的推理对gpu性能要求较高，作者本身是3060，使用vit_l模型推理一张1080p的图像算是快显存极限了。不赶时间的话，gpu又不太好的同学，可以使用cpu训练，然后挂着跑。
+###将loadModel中的device参数改为'cpu'.
 
 
 
@@ -47,6 +48,7 @@ labels/train
 ```
 
 内，其中的temp文件夹都是给用户临时存放文件的。
+###然后运行main.py文件
 
 可以选择是否保存检测完的图像，默认存放在
 
