@@ -1,7 +1,7 @@
 # LabelSAM-for-yolo
 简易的yolo半自动标注库，目前只支持单目标。如果数据集图片背景复杂，可能工作量不比直接标的小，因为sam是通用的分割模型。但是开源适当通过调整参数修改。
 
-
+主要源码在LabelSAM文件夹内。
 
 ### 环境：请去[facebookresearch/segment-anything: The repository provides code for running inference with the SegmentAnything Model (SAM), links for downloading the trained model checkpoints, and example notebooks that show how to use the model. (github.com)](https://github.com/facebookresearch/segment-anything)处下载 
 
@@ -9,7 +9,7 @@
 segment_anything
 ```
 
-文件夹，并将其放到项目根目录。
+文件夹，并将其放到项目的LabelSAM/下。
 
 并于
 
