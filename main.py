@@ -6,8 +6,10 @@ from LabelSAM import AutoAddLabel,ImageResize,SplitMasks
 from segment_anything import SamAutomaticMaskGenerator
 
 def Main():
+    device = 'cuda'
     save_crop=True#是否保存检测框内的mask
     resize_img=False#是否降低分辨率
+    factor=2 #降低分辨率的倍数
 
     LABEL_NAME="wheat"#单目标标签名
     imgDir = r'./images/train'  # 待标注的图片路径
@@ -17,14 +19,22 @@ def Main():
 
 
     if resize_img:#注意不需要resize的时候请改为false，不然每次运行都会执行resize
-        ImageResize.resizeImage(dirPath=resizeDir,factor=2)#目录里的所有图片分辨率降低2倍（长宽/2）
+        ImageResize.resizeImage(dirPath=resizeDir,factor=factor)#目录里的所有图片分辨率降低2倍（长宽/2）
+        imgDir = resizeDir
+    
+
     #模型列表
     h_sam = "sam_vit_h_4b8939.pth"
     b_sam = "sam_vit_b_01ec64.pth"
     l_sam = "sam_vit_l_0b3195.pth"
 
-    model_type='vit_l'#模型类型，与模型类型同步
-    model_path=rf'./model/{l_sam}'#模型路径
+    model_type='vit_b'#模型类型，与模型类型同步
+    if model_type=='vit_b':
+        model_path=rf'./model/{b_sam}'
+    elif model_type=='vit_l':
+        model_path=rf'./model/{l_sam}'
+    elif model_type=='vit_h':
+        model_path=rf'./model/{h_sam}'
 
     #1.加载一个默认参数的模型
     # generator = AutoAddLabel.loadModel(model_type=model_type,model_path=model_path,device='cuda')
@@ -33,7 +43,7 @@ def Main():
     generator2 = AutoAddLabel.loadModel(
         model_path=model_path,
         model_type=model_type,
-        device='cuda',#默认使用gpu，配置不够可以改成cpu，但是推理时间会长很多
+        device=device,
         params=dict(
             # points_per_side=32,
             pred_iou_thresh=0.3,
