@@ -3,6 +3,21 @@
 
 主要源码在LabelSAM文件夹内。
 
+
+## 项目结构：
+
+```
+1.LabelSAM:项目源码，请到segment-anything(https://github.com/facebookresearch/segment-anything)下下载segment_anything文件夹，放到该目录下。
+2.images:存放待处理的图片文件，同labelimg的open dir路径。
+3.labels:存放生成的标注的标签
+4.model:存放SAM的模型文件，去https://github.com/facebookresearch/segment-anything#model-checkpoints下载对应的模型文件。
+5.result:存放分割后的图像
+6.main.py:项目的示例代码，用户没有其他需求时，只需要调整模型的参数达到符合自己任务的需求即可。
+```
+
+
+
+
 ### 环境：
 请去[facebookresearch/segment-anything: The repository provides code for running inference with the SegmentAnything Model (SAM), links for downloading the trained model checkpoints, and example notebooks that show how to use the model. (github.com)](https://github.com/facebookresearch/segment-anything)
 处下载 
