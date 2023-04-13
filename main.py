@@ -47,14 +47,19 @@ def Main():
 
     #调用自动标注函数
     # AutoAddLabel.autoAddLabels(labelsPAth=labelDir, imagePath=imgDir,generator=generator)
-    AutoAddLabel.autoAddLabels(labelsPAth=labelDir, imagePath=imgDir, generator=generator2)
+    AutoAddLabel.autoAddLabels(
+        labelsPAth=labelDir, 
+        imagePath=imgDir,
+        generator=generator2
+    )
 
     #自动标注，将imgDir的标注内容存入labelDir
     if save_crop:
         SplitMasks.splitExp(
             imagesPath=imgDir,
             labelsPath=labelDir,
-            savePath=cropDir)
+            savePath=cropDir
+        )
 
 if __name__ == '__main__':
     Main()
