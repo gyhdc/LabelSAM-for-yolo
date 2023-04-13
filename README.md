@@ -3,7 +3,9 @@
 
 主要源码在LabelSAM文件夹内。
 
-### 环境：请去[facebookresearch/segment-anything: The repository provides code for running inference with the SegmentAnything Model (SAM), links for downloading the trained model checkpoints, and example notebooks that show how to use the model. (github.com)](https://github.com/facebookresearch/segment-anything)处下载 
+### 环境：
+请去[facebookresearch/segment-anything: The repository provides code for running inference with the SegmentAnything Model (SAM), links for downloading the trained model checkpoints, and example notebooks that show how to use the model. (github.com)](https://github.com/facebookresearch/segment-anything)
+处下载 
 
 ```
 segment_anything
